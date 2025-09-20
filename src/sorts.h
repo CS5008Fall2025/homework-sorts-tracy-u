@@ -2,6 +2,7 @@
 #define SORTS_H
 
 #include <stdlib.h>
+#include <stdbool.h>
 #include "sort_helper.h"
 
 /*** code for selection sort ****/
@@ -62,7 +63,6 @@ void selectionSortIntegers(int *array, unsigned int size, int print) {
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void insertionSortIntegers(int *array, unsigned int size, int print)
 {
-    // TODO: Implement insertion sort
     for (int i = 0; i < size; i++) {
         int key = array[i];
         int j = i; 
@@ -93,8 +93,18 @@ void insertionSortIntegers(int *array, unsigned int size, int print)
 //           be modified to store a sorted array of size.
 void bubbleSortIntegers(int *array, unsigned int size, int print)
 {
-    // code generated from lab
-
+    for(int i = 0; i < size; i++) {
+        bool swapped = false;
+        for(int j = 0; j < size - i - 1; j++){
+            if(array[j] > array[j + 1]) {
+                swap(&array[j], &array[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
 }
 
 // ** You will work on merge sort during the lab on Module 06 ** //
