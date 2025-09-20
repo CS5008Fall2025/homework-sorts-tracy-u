@@ -44,6 +44,7 @@ void selectionSortIntegers(int *array, unsigned int size, int print) {
         swap(&array[smallestIndex], &array[i]);
     }
     // does not have a return, but sorts array in place. 
+    // References used: Grokking Algorithms: Chapter 2, selection sort
 }
 
 /***  Code for Insertion Sort ***/
@@ -62,7 +63,18 @@ void selectionSortIntegers(int *array, unsigned int size, int print) {
 void insertionSortIntegers(int *array, unsigned int size, int print)
 {
     // TODO: Implement insertion sort
- 
+    for (int i = 0; i < size; i++) {
+        int key = array[i];
+        int j = i; 
+        // while the value of j is greater than 0 (lowest index) and
+        // while the value to the left is greater than the key
+        // keep swapping with the value to the left
+        while(j > 0 && array[j - 1] > key) {
+            swap(&array[j-1], &array[j]);
+            j = j - 1;
+        }
+        array[j] = key; // finally set the j index to the value of the key
+    }
 
 }
 
