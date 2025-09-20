@@ -35,9 +35,15 @@ int findMinimum(int *array, int start, int stop) {
 //  - 'size' tells us how big the array of data is we are sorting.
 //  -  'print' tells it to print out after each interation
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
-void selectionSortIntegers(int *array, unsigned int size, int print)
-{
-    // todo: implement selection sort
+void selectionSortIntegers(int *array, unsigned int size, int print) {
+    // loop through the array
+    for (int i = 0; i < size; i++) { 
+        // find the index of the smallest value in the array
+        int smallestIndex = findMinimum(array, i, size);
+        // swap the smallest value with the current index
+        swap(&array[smallestIndex], &array[i]);
+    }
+    // does not have a return, but sorts array in place. 
 }
 
 /***  Code for Insertion Sort ***/

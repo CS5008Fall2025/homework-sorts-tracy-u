@@ -127,6 +127,11 @@ void test_merge_quick(int size)
 
 int main(int argc, char const *argv[])
 {
+    // temp test find minIndex
+    int arr[] = {1, 3, 4, 5, 0};
+    int minIndex = findMinimum(arr, 0, 5);
+    printf("minIndex: %d", minIndex);
+
     // Generate a random seed
     time_t t;
     srand((unsigned)time(&t));
