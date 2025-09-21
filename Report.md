@@ -10,9 +10,11 @@ You are free to write a script to run the program and build your table (then cop
 ### Table [^note]
 | N | Bubble | Selection | Insertion | Merge | Quick |
 | :-- | :--: | :--: | :--: | :--: | :--: |
-
-
-
+|10|0.000001|0.000001|0.000000|0.000001|0.000002|
+|100|0.000047|0.000028|0.000028|0.000018|0.000009|
+|1000|0.002323|0.001095|0.001247|0.000131|0.000084|
+|10000|0.302095|0.107404|0.193229|0.001593|0.001076|
+|100000|37.534428|10.229813|13.328460|0.018416|0.013281|
 
 
 
@@ -20,30 +22,66 @@ You are free to write a script to run the program and build your table (then cop
 ## BigO Analysis  / Questions
 
 ### 1. Build a line chart
-Build a line chart using your favorite program. Your X axis will be N increasing, and your Y access will be the numbers for each type of sort. This will create something similar to the graph in the instructions, though it won't be as smooth. Due to speed differences, you may need to break up the $O(\log n)$ and $O(n^2)$ into different charts.
+Build a line chart using your favorite program. Your X axis will be N increasing, and your Y access will be the numbers for each type of sort. This will create something similar to the graph in the instructions, though it won't be as smooth. Due to speed differences, you may need to break up the $O(\log n)$ and $\mathcal{O}(n^2)$in different charts.
 
 Include the image in your markdown. As a reminder, you save the image in your repo, and use [image markdown].
 
-
+![Sort Methods and Run Times](Sort_Methods_and_Run_Times.png)
 
 ### 2. Analysis
 Looking at the graph and the table, what can you say about the various sorts? Which are the fastest? Which are the slowest? Which are the most consistent? Which are the least consistent? Use this space to reflect in your own words your observations.
 
+Looking at the graph and the table: 
+- The bubble sort, selection sort, and insertion sorts are the slowest
+  - Among those bubble sort is the slowest, followed by insertion and selection. 
+- The merge and quick sort are fastest, with the quick sort being slightly faster. 
 
 ### 3. Big O
 Build another table that presents the best, worst, and average case for Bubble, Selection, Insertion, Merge, and Quick. You are free to use resources for this, but please reference them if you do. 
 
+| Method    | Best                  | Worst                 | Average               |
+| :--       | :--:                  | :--:                  | :--:                  | 
+| Bubble    | $\mathcal{O}(n)$      |  $\mathcal{O}(n^2)$   |  $\mathcal{O}(n^2)$   |
+|Selection  |  $\mathcal{O}(n^2)$   |  $\mathcal{O}(n^2)$   |  $\mathcal{O}(n^2)$   |
+|Insertion  | $\mathcal{O}(n)$      |  $\mathcal{O}(n^2)$   |  $\mathcal{O}(n^2)$   |
+|Merge      |$\mathcal{O}(n\log n)$ |$\mathcal{O}(n\log n)$ | $\mathcal{O}(n\log n)$ |
+| Quick     |$\mathcal{O}(n\log n)$ |  $\mathcal{O}(n^2)$   | $\mathcal{O}(n\log n)$ |
+
+[1] [2] [3]
 
 #### 3.2 Worst Case
 Provide example of arrays that generate _worst_ case for Bubble, Selection, Insertion, Merge Sorts
 
+- Bubble: `[5, 4, 3, 2, 1]`
+- Selection: `[5, 4, 3, 2, 1]`
+- Insertion: `[5, 4, 3, 2, 1]`
+- Merge: `[5, 1, 7, 3, 6, 2, 8, 4]` 
+- Quick: Depends on pivot selection
+
+[1] [4]
 
 #### 3.3 Best Case
 Provide example of arrays that generate _best_ case for Bubble, Selection, Insertion, Merge Sorts 
 
+- Bubble: `[1, 2, 3, 4, 5]`
+- Selection: `[1, 2, 3, 4, 5]`
+- Insertion: `[1, 2, 3, 4, 5]`
+- Merge: `[1, 2, 3, 4, 5]` (same as worst)
+
+[1] [4]
 
 #### 3.4 Memory Considerations
 Order the various sorts based on which take up the most memory when sorting to the least memory. You may have to research this, and include the mathematical notation. 
+
+| Sort Method   | Space Complexity  |
+| :--           | :--:              |
+| Bubble        | $\mathcal{O}(1)$ |
+| Selection     | $\mathcal{O}(1)$ |
+| Insertion     | $\mathcal{O}(1)$ |
+| Merge         | $\mathcal{O}(n)$ |
+| Quick         | Worst: $\mathcal{O}(n)$ Best: $\mathcal{O}(\log n)$ |
+
+[1] [4]
 
 ### 4. Growth of Functions
 Give the following values, place them correctly into *six* categories. Use the bullets, and feel free to cut and paste the full LatexMath we used to generate them.  
@@ -75,9 +113,9 @@ Pair the following terms with the correct function in the table.
 | ------      | ------ |
 | $O(n^3)$    |  your answer here |
 | $O(1)$      |   |
-| $O(n)$      |   |
+| $\mathcal{O}(n)$     |   |
 | $O(\log_2n)$ |   |
-| $O(n^2)$    |   |
+| $\mathcal{O}(n^2)$     |
 | $O(n!)$     |   |
 | $O(2^n)$    |   |
 
@@ -96,6 +134,17 @@ You are planning a heist to steal a rare coin that weighs 1.0001 ounces. The pro
 
 #### 7.1 Algorithm
 Describe an algorithm that will help you find the coin. We encourage you to use pseudo-code, but not required.
+
+Input: A list _A_ of _n_ elements
+Output: The index of the item with the maximum value
+
+maxValue = A[i]
+maxIndex = i
+for i = 0 to n-1: 
+    if A[i] > maxValue:
+        maxValue = A[i]
+        maxIndex = i
+return maxIndex
 
 #### 7.2 Time Complexity
 What is the average time complexity of your algorithm? 
@@ -124,11 +173,10 @@ Give the worst and best case time-complexity, and examples that would generate t
 ## References
 Add your references here. A good reference includes an inline citation, such as [1] , and then down in your references section, you include the full details of the reference. Use [ACM Reference format].
 
-1. Reference info, date, etc.
-2. ...
-
-
-
+1. https://www.geeksforgeeks.org/dsa/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
+2. https://www.geeksforgeeks.org/dsa/time-and-space-complexity-analysis-of-merge-sort/
+3. https://www.geeksforgeeks.org/dsa/time-and-space-complexity-analysis-of-quick-sort/
+4. https://www.baeldung.com/cs/merge-sort-time-complexity
 
 
 ## Footnotes:
