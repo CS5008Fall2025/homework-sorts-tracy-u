@@ -67,10 +67,8 @@ void selectionSortIntegers(int *array, unsigned int size, int print) {
 //  - 'print' tells it to print out after each iteration 
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void insertionSortIntegers(int *array, unsigned int size, int print) {
+
     for (int i = 0; i < size; i++) {
-        if(print) {
-            printIntArray(array, size);
-        }
         int key = array[i];
         int j = i; 
         // while the value of j is greater than 0 (lowest index) and
@@ -81,6 +79,9 @@ void insertionSortIntegers(int *array, unsigned int size, int print) {
             j = j - 1;
         }
         array[j] = key; // finally set the j index to the value of the key
+        if(print) {
+            printIntArray(array, size);
+        }
     }
 
 }
