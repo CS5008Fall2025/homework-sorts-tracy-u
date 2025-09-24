@@ -40,10 +40,14 @@ int findMinimum(int *array, int start, int stop) {
 void selectionSortIntegers(int *array, unsigned int size, int print) {
     // loop through the array
     for (int i = 0; i < size; i++) { 
+        if(print) {
+            printIntArray(array, size);
+        }
         // find the index of the smallest value in the array
         int smallestIndex = findMinimum(array, i, size);
         // swap the smallest value with the current index
         swap(&array[smallestIndex], &array[i]);
+
     }
     // does not have a return, but sorts array in place. 
     // References used: Grokking Algorithms: Chapter 2, selection sort
@@ -64,6 +68,9 @@ void selectionSortIntegers(int *array, unsigned int size, int print) {
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void insertionSortIntegers(int *array, unsigned int size, int print) {
     for (int i = 0; i < size; i++) {
+        if(print) {
+            printIntArray(array, size);
+        }
         int key = array[i];
         int j = i; 
         // while the value of j is greater than 0 (lowest index) and
@@ -93,6 +100,9 @@ void insertionSortIntegers(int *array, unsigned int size, int print) {
 //           be modified to store a sorted array of size.
 void bubbleSortIntegers(int *array, unsigned int size, int print) {
     for(int i = 0; i < size; i++) {
+        if(print) {
+            printIntArray(array, size);
+        }
         bool swapped = false;
         for(int j = 0; j < size - i - 1; j++){
             if(array[j] > array[j + 1]) {
