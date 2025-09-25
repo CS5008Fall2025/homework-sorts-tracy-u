@@ -86,69 +86,91 @@ Order the various sorts based on which take up the most memory when sorting to t
 ### 4. Growth of Functions
 Give the following values, place them correctly into *six* categories. Use the bullets, and feel free to cut and paste the full LatexMath we used to generate them.  
 
-$n^2$  
-$n!$  
-$n\log_2n$  
-$5n^2+5n$  
-$10000$  
-$3n$    
-$100$  
-$2^n$  
-$100n$  
-$2^{(n-1)}$
 #### Categories
-* 
-*
-*
-*
-*
-*
+* Constant: $\mathcal{O}(1)$ 
+  * $10000$  
+  * $100$  
+
+* Linear: $\mathcal{O}(n)$ 
+  * $3n$    
+  * $100n$  
+
+* Logarithmic: $\mathcal{O}(n \log n)$ 
+  * $n\log_2n$  
+
+* Quadratic: $\mathcal{O}(n^2)$ 
+  * $n^2$  
+  * $5n^2+5n$  
+
+* Exponential: $\mathcal{O}(k^n)$ 
+  * $2^n$  
+  * $2^{(n-1)}$
+
+* Factorial: $\mathcal{O}(n!)$ 
+  * $n!$  
+
+
 
 ### 5. Growth of Function Language
 
 Pair the following terms with the correct function in the table. 
 * Constant, Logarithmic, Linear, Quadratic, Cubic, Exponential, Factorial
 
-| Big $O$     |  Name  |
-| ------      | ------ |
-| $O(n^3)$    |  your answer here |
-| $O(1)$      |   |
-| $\mathcal{O}(n)$     |   |
-| $O(\log_2n)$ |   |
-| $\mathcal{O}(n^2)$     |
-| $O(n!)$     |   |
-| $O(2^n)$    |   |
+| Big $O$     |  Name       |
+| ------      | ------      |
+| $O(n^3)$    | Cubic       |
+| $O(1)$      | Constant  |
+| $O(n)$     | Linear  |
+| $O(\log_2n)$ | Logarithmic  |
+| $O(n^2)$     |Quadratic|
+| $O(n!)$     | Factorial  |
+| $O(2^n)$    | Exponential  |
 
 
 
 ### 6. Stable vs Unstable
 Look up stability as it refers to sorting. In your own words, describe one sort that is stable and one sort that isn't stable  
 
+  A stable sort retains the original order in the array when elements in the array have the same value. For example, if the value `3` is at index position 2 and 4 in the original array, the `3` that was originally at index position 2 should be before the `3` that was originally at index position 4 in the sorted array. 
 
 ### 6.2 When stability is needed?
 Explain in your own words a case in which you will want a stable algorithm over an unstable. Include an example. 
+
+- A stable sort is important when you need to preserve the original order of the array. An example might be an array that is already sorted by one characteristic and then needs a second level of sorting -- imagine an array of product orders which was already ordered by timestamp. If you wanted to sort by product ID, the stable sort would keep the array ordered by timestamp within each product ID. 
 
 ### 7. Gold Thief
 
 You are planning a heist to steal a rare coin that weighs 1.0001 ounces. The problem is that the rare coin was mixed with a bunch of counter fit coins. You know the counter fit coins only weight 1.0000 ounce each. There are in total 250 coins.  You have a simple balance scale where the coins can be weighed against each other. Hint: don't think about all the coins at once, but how you can break it up into even(ish) piles. 
 
+- Break into two even groups; see which one weighs more; discard the other pile. 
+- Repeat above until you find the coin. 
+
 #### 7.1 Algorithm
 Describe an algorithm that will help you find the coin. We encourage you to use pseudo-code, but not required.
 
 Input: A list _A_ of _n_ elements
-Output: The index of the item with the maximum value
+Output: The element with the maximum value
 
-maxValue = A[i]
-maxIndex = i
-for i = 0 to n-1: 
-    if A[i] > maxValue:
-        maxValue = A[i]
-        maxIndex = i
-return maxIndex
+tempArray = []
+
+while n > 1: 
+  middle = n / 2
+  A1 = A[0 to middle]
+  A2 = A[middle + 1 to n]
+
+  if(sum(A1) > sum(A2)): 
+    tempArray = A1
+  else: 
+    tempArray = A2 
+  n = middle
+return tempArray;
+
+
 
 #### 7.2 Time Complexity
 What is the average time complexity of your algorithm? 
 
+The average time complexity would be logaritmic $\mathcal{O}(\log n)$, since n is being divided in iteration in a loop. 
 
 ## Technical Interview Practice Questions
 
@@ -156,27 +178,46 @@ For both these questions, are you are free to use what you did as the last secti
 
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
 
-2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
+**What is the difference between stack and heap memory allocation and when would you use each?**
+
+- Stack allocation refers to memory assignment that happens during function calls, while heap allocation refers to dynamic memory allocation. Stack memory allocation is managed automatically and when the function finishes execution, memory is deallocated. Heap memory allocation, on the other hand persists for the entire execution of the program and must be managed by the programmer in C. 
+- Use stack allocation when the resource does not need to persist outside of the scope it's created in and use heap allocation when the resource needs to persist outside of that scope. 
+  
+
+1. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
  
+- See `sort_array_by_parity.c`
+
 
 ## Deeper Thinking
 Sorting algorithms are still being studied today. They often include a statistical analysis of data before sorting. This next question will require some research, as it isn't included in class content. When you call `sort()` or `sorted()` in Python 3.6+, what sort is it using? 
 
+- Python uses Timsort.
+
 #### Visualize
 Find a graphic / visualization (can be a youtube video) that demonstrates the sort in action. 
 
+Great example here: https://www.chrislaux.com/timsort
+
 #### Big O
 Give the worst and best case time-complexity, and examples that would generate them. 
+
+- Best case: $O(n)$ 
+  - Already sorted: `[1, 2, 3, 4, 5, 6, 7, 8]`
+- Worst cast: $O(n*log(n))$
+  - Similar to merge sort, an array that will require lots of dividing/merging
+  - `[5, 1, 7, 3, 6, 2, 8, 4]` 
 
 <hr>
 
 ## References
 Add your references here. A good reference includes an inline citation, such as [1] , and then down in your references section, you include the full details of the reference. Use [ACM Reference format].
 
-1. https://www.geeksforgeeks.org/dsa/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
-2. https://www.geeksforgeeks.org/dsa/time-and-space-complexity-analysis-of-merge-sort/
-3. https://www.geeksforgeeks.org/dsa/time-and-space-complexity-analysis-of-quick-sort/
-4. https://www.baeldung.com/cs/merge-sort-time-complexity
+1. GeeksforGeeks. "Comparison among Bubble Sort, Selection Sort and Insertion Sort." GeeksforGeeks DSA. https://www.geeksforgeeks.org/dsa/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
+2.  GeeksforGeeks. "Time and Space Complexity Analysis of Merge Sort." GeeksforGeeks DSA. https://www.geeksforgeeks.org/dsa/time-and-space-complexity-analysis-of-merge-sort/
+3.  GeeksforGeeks. "Time and Space Complexity Analysis of Quick Sort." GeeksforGeeks DSA. https://www.geeksforgeeks.org/dsa/time-and-space-complexity-analysis-of-quick-sort/
+4.  Baeldung. "Merge Sort Time Complexity." Baeldung Computer Science. https://www.baeldung.com/cs/merge-sort-time-complexity
+5.  Chris Laux. "Timsort." Chris Laux Personal Website. https://www.chrislaux.com/timsort
 
 
 ## Footnotes:
