@@ -1,3 +1,9 @@
+/*
+* Name: Tracy U. 
+* CS 5008, Fall 2025
+* Assignment: Sorts
+*/
+
 // Compile with: gcc -Wall merge_test.c -o merge_test.out
 // Windows: change .out to .exe
 // Run with: ./merge_test.out

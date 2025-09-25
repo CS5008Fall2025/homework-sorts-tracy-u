@@ -1,3 +1,9 @@
+/*
+* Name: Tracy U. 
+* CS 5008, Fall 2025
+* Assignment: Sorts
+*/
+
 // Compile with: gcc -Wall selection_test.c -o selection_test.out
 // Windows: change .out to .exe
 // Run with: ./selection_test.out

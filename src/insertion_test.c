@@ -1,3 +1,10 @@
+/*
+* Name: Tracy U. 
+* CS 5008, Fall 2025
+* Assignment: Sorts
+*/
+
+
 // Compile with: gcc -Wall insertion_test.c -o insertion_test.out
 // Windows: change .out to .exe
 // Run with: ./insertion_test.out

@@ -1,3 +1,10 @@
+/*
+* Name: Tracy U. 
+* CS 5008, Fall 2025
+* Assignment: Sorts
+*/
+
+
 /// to compile: gcc -Wall tester.c -o tester.out
 
 #include <stdio.h>  // Include file for standard input/output

@@ -1,3 +1,9 @@
+/*
+* Name: Tracy U. 
+* CS 5008, Fall 2025
+* Assignment: Sorts
+*/
+
 #ifndef SORTS_H
 #define SORTS_H
 
