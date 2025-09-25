@@ -56,7 +56,7 @@ void selectionSortIntegers(int *array, unsigned int size, int print) {
 
     }
     // does not have a return, but sorts array in place. 
-    // References used: Grokking Algorithms: Chapter 2, selection sort
+    // References used: Grokking Algorithms: Chapter 2, selection sort psuedocode
 }
 
 /***  Code for Insertion Sort ***/
