@@ -7,7 +7,7 @@ You are free to write a script to run the program and build your table (then cop
 
  
 
-### Table [^note]
+### Table
 | N | Bubble | Selection | Insertion | Merge | Quick |
 | :-- | :--: | :--: | :--: | :--: | :--: |
 |10|0.000001|0.000001|0.000000|0.000001|0.000002|
@@ -56,7 +56,6 @@ Provide example of arrays that generate _worst_ case for Bubble, Selection, Inse
 - Selection: `[5, 4, 3, 2, 1]`
 - Insertion: `[5, 4, 3, 2, 1]`
 - Merge: `[5, 1, 7, 3, 6, 2, 8, 4]` 
-- Quick: Depends on pivot selection
 
 [1] [4]
 
@@ -131,7 +130,7 @@ Pair the following terms with the correct function in the table.
 ### 6. Stable vs Unstable
 Look up stability as it refers to sorting. In your own words, describe one sort that is stable and one sort that isn't stable  
 
-  A stable sort retains the original order in the array when elements in the array have the same value. For example, if the value `3` is at index position 2 and 4 in the original array, the `3` that was originally at index position 2 should be before the `3` that was originally at index position 4 in the sorted array. 
+-  A stable sort retains the original order in the array when elements in the array have the same value. For example, if the value `3` is at index position 2 and 4 in the original array, the `3` that was originally at index position 2 should be before the `3` that was originally at index position 4 in the sorted array. 
 
 ### 6.2 When stability is needed?
 Explain in your own words a case in which you will want a stable algorithm over an unstable. Include an example. 
@@ -148,6 +147,7 @@ You are planning a heist to steal a rare coin that weighs 1.0001 ounces. The pro
 #### 7.1 Algorithm
 Describe an algorithm that will help you find the coin. We encourage you to use pseudo-code, but not required.
 
+```
 Input: A list _A_ of _n_ elements
 Output: The element with the maximum value
 
@@ -164,13 +164,13 @@ while n > 1:
     tempArray = A2 
   n = middle
 return tempArray;
-
+```
 
 
 #### 7.2 Time Complexity
 What is the average time complexity of your algorithm? 
 
-The average time complexity would be logaritmic $\mathcal{O}(\log n)$, since n is being divided in iteration in a loop. 
+- The average time complexity would be logaritmic $\mathcal{O}(\log n)$, since n is being divided in a loop. 
 
 ## Technical Interview Practice Questions
 
@@ -178,10 +178,10 @@ For both these questions, are you are free to use what you did as the last secti
 
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
 
-**What is the difference between stack and heap memory allocation and when would you use each?**
+- **What is the difference between stack and heap memory allocation and when would you use each?**
 
-- Stack allocation refers to memory assignment that happens during function calls, while heap allocation refers to dynamic memory allocation. Stack memory allocation is managed automatically and when the function finishes execution, memory is deallocated. Heap memory allocation, on the other hand persists for the entire execution of the program and must be managed by the programmer in C. 
-- Use stack allocation when the resource does not need to persist outside of the scope it's created in and use heap allocation when the resource needs to persist outside of that scope. 
+  - Stack allocation refers to memory assignment that happens during function calls, while heap allocation refers to dynamic memory allocation. Stack memory allocation is managed automatically and when the function finishes execution, memory is deallocated. Heap memory allocation, on the other hand persists for the entire execution of the program and must be managed by the programmer in C. 
+  - Use stack allocation when the resource does not need to persist outside of the scope it's created in and use heap allocation when the resource needs to persist outside of that scope. 
   
 
 1. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
@@ -197,7 +197,7 @@ Sorting algorithms are still being studied today. They often include a statistic
 #### Visualize
 Find a graphic / visualization (can be a youtube video) that demonstrates the sort in action. 
 
-Great example here: https://www.chrislaux.com/timsort
+- Great example here: https://www.chrislaux.com/timsort
 
 #### Big O
 Give the worst and best case time-complexity, and examples that would generate them. 
